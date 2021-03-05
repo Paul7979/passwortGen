@@ -7,9 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -35,8 +33,6 @@ public class GeneratorController {
     public String generatePasswort(@ModelAttribute("params")Params params, Model model) throws ExecutionException, InterruptedException {
         CompletableFuture<List<String>> listCompletableFuture = passwortGenService.generatePasswords(params);
         List<String> passwords = listCompletableFuture.get();
-        //String password = params.generatePassword();
-        //System.out.println(password);
         System.out.println("Generated passwords: " + passwords.size());
         model.addAttribute("password", passwords);
         return "generated";

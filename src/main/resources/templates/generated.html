@@ -14,9 +14,9 @@
    <!-- <label th:each="p : ${password}" th:text="${p}"></label>-->
     <form action="#" th:action="@{/generate}" method="post" th:object="${params}">
         <label>Amount:</label>
-        <input type="number" th:field="*{amount}" /><br/>
+        <input type="number" max="10" th:field="*{amount}" /><br/>
         <label>Length:</label>
-        <input type="number" th:field="*{length}" /><br/>
+        <input type="number" max="25" th:field="*{length}" /><br/>
         <label>Alphabet:</label>
         <input type="text" th:field="*{alphabet}" /><br/>
 
